@@ -4,7 +4,7 @@ export const MenuList = [
     url: "/",
   },
   {
-    title: "Market Place",
+    title: "Marketplace",
     url: "/marketplace",
   },
 
