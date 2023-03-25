@@ -78,8 +78,9 @@ const SellData = () => {
     setEnteredTitle(' ')
     setEnteredDescription(' ')
     }catch(error){
-      window.alert("Error !!! ");
+      console.log(error)
       setComp(true);
+      window.alert("Error !!! ");
     }
   }
 

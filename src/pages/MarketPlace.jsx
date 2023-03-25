@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "../components/Cards/CardLP";
 import "./marketplace.css";
-import { Polybase } from '@polybase/client'
+import { Polybase } from '@polybase/client';
+import {ethers} from 'ethers';
 
 
 const db = new Polybase({
@@ -29,7 +30,6 @@ const MarketPlace =  () => {
   }
 
   const payWithMetamask = async (receiver, strEther) => {
-    setLC('Waiting for transaction to complete .....')
     let ethereum = window.ethereum
 
     // Request account access if needed
