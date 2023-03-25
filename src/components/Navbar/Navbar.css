@@ -1,0 +1,122 @@
+nav {
+  /* background: rgba(0, 0, 0, 0.9); */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  /* color: #fff; */
+  position: relative;
+  z-index: 99;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 20px;
+}
+.menu-icon .close {
+  transform: rotate(360deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-icon .open {
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 25px;
+  color: tomato;
+}
+
+.logo font {
+  color: black;
+}
+
+.menu-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-list li:last-child a {
+  font-weight: 300;
+  padding: 5px 10px;
+  color: white;
+  background-color: #2868ff;
+  transition: all 0.5s ease-in-out;
+  margin-left: 20px;
+  border-radius: 2px;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+.menu-list li:last-child a:hover,
+.menu-list li:last-child a.active {
+  background-color: #3636D6;
+  color: white;
+}
+.menu-list li a {
+  text-decoration: none;
+  /* color: #fff; */
+  font-weight: 400;
+  padding: 5px 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.menu-list li a:hover,
+.menu-list li a.active {
+  color: #2868ff;
+  transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  .logo {
+    font-size: 20px;
+  }
+  .menu-list li a {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu-list {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    right: 0;
+    top: 64px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-list li {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .menu-list li:last-child {
+    margin-bottom: 0px;
+  }
+
+  .menu-list li a,
+  .menu-list li:last-child a {
+    width: 100px;
+    display: block;
+    margin: auto;
+  }
+
+  .menu-list.close {
+    right: -100%;
+    transition: all 0.5s ease-in-out;
+  }
+}

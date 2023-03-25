@@ -1,0 +1,20 @@
+.form_comp {
+  display: flex;
+  flex-direction: column;
+}
+.selldata_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+.selldata_container form {
+  border: 1px solid red;
+  padding: 15px;
+}
+.form_comp input,.form_comp textarea {
+  background-color: #e5ecfb;
+}
+.button {
+  background-color: #2667ff;
+}

@@ -1,0 +1,10 @@
+.marketplace_container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+marketplace_container :first-child {
+    height: 5px;
+}
