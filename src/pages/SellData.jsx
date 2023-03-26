@@ -4,6 +4,7 @@ import { Polybase } from '@polybase/client'
 import { ethers } from 'ethers'
 import contract from '../contracts/DealClient.json'
 import './selldata.css'
+import check from '../images/check.gif'
 const CID = require('cids')
 
 // TODO : change to SellerData before deployment
@@ -213,7 +214,10 @@ const SellData = () => {
     {
       success &&
       <>
-      <div className='font'><b>Sale Successfully Created</b></div>
+      <div className='font'>
+        <img src={check} />
+        <b>Sale Successfully Created</b>
+        </div>
       </>
     }
       {comp && <form onSubmit={submitHandler}>
