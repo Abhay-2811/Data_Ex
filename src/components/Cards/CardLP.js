@@ -11,7 +11,7 @@ const CardLP = (props) => {
 
   const [loader, setloader] = useState(false);
   const [showPage, setSP] = useState(true);
-
+  const [dataLength, setDataLength] = useState(0)
 
   const db = new Polybase({
     defaultNamespace:
@@ -23,6 +23,7 @@ const CardLP = (props) => {
       const res = await db.collection('SellerData').where("id","==",FileName).get();
       const address = res.data[0].data.Address;
       const price = res.data[0].data.Price;
+      
       console.log(address);
       console.log(price);
       await payWithMetamask(address, String(price));
@@ -32,38 +33,42 @@ const CardLP = (props) => {
   }
 }
 
-  const payWithMetamask = async (receiver, strEther) => {
+const payWithMetamask = async (receiver, strEther) => {
 
-    let ethereum = window.ethereum
+  let ethereum = window.ethereum
 
-    // Request account access if needed
-    await ethereum.enable()
+  // Request account access if needed
+  await ethereum.enable()
 
-    const provider = new ethers.BrowserProvider(ethereum)
-    const signer = await provider.getSigner()
+  const provider = new ethers.BrowserProvider(ethereum)
+  const signer = await provider.getSigner()
 
-    console.log(
-      `payWithMetamask(receiver=${receiver}, sender=${signer}, strEther=${strEther})`
-    )
+  console.log(
+    `payWithMetamask(receiver=${receiver}, sender=${signer}, strEther=${strEther})`
+  )
 
-    const tx = {
-      from: signer.address,
-      to: receiver,
-      value: ethers.parseEther(strEther),
-      nonce: await provider.getTransactionCount(signer.address, 'latest')
-    }
-
-    const transaction = await signer.sendTransaction(tx).then(transaction => {
-      provider.once(transaction.hash, async (transaction) => {
-        // mark as sold
-        await db.collection('SellerData').record(props.filename).call("sold",[db.collection('SellerData').record(props.filename)])
-        
-        //redirect
-      })
-    })
-
-    
+  const tx = {
+    from: signer.address,
+    to: receiver,
+    value: ethers.parseEther(strEther),
+    nonce: await provider.getTransactionCount(signer.address, 'latest')
   }
+
+  const transaction = await signer.sendTransaction(tx).then(transaction => {
+    provider.once(transaction.hash, async (transaction) => {
+      // mark as sold
+      await db.collection('SellerData').record(props.filename).call("sold",[db.collection('SellerData').record(props.filename)])
+      const res = await db.collection('SellerData').record(props.filename).get()
+    
+      const acid = res.data.cid
+      console.log(acid)
+      window.location.href = `https://ipfs.io/ipfs/${acid}/`;
+    })
+  })
+
+  
+}
+
 
 
   return (

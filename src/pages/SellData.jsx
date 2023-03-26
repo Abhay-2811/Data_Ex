@@ -32,6 +32,7 @@ const SellData = () => {
   const [loading, setLoading] = useState(false)
   const [loadingContent, setLC] = useState('')
   const [comp, setComp] = useState(true)
+  const [success,setSucess] = useState(false);
 
   const client = new Web3Storage({
     token:
@@ -150,6 +151,9 @@ const SellData = () => {
         })
 
         console.log('Deal proposed! CID: ' + _CID)
+        //after success everything is done 
+        setLoading(false);
+        setSucess(true);
       } else {
         console.log("Ethereum object doesn't exist!")
       }
@@ -183,6 +187,8 @@ const SellData = () => {
     const transaction = await signer.sendTransaction(tx).then(transaction => {
       provider.once(transaction.hash, transaction => {
         dataDeal()
+        
+
       })
     })
   }
@@ -190,15 +196,25 @@ const SellData = () => {
     <div className='selldata_container'>
     {
     loading && 
-    <><div class="spinner-box">
-    <div class="pulse-container">  
-    <div class="pulse-bubble pulse-bubble-1"></div>
-    <div class="pulse-bubble pulse-bubble-2"></div>
-    <div class="pulse-bubble pulse-bubble-3"></div>
+    <>
+    <div className='loading_Spinner'>
+      <div class="spinner-box">
+      <div class="pulse-container">  
+      <div class="pulse-bubble pulse-bubble-1"></div>
+      <div class="pulse-bubble pulse-bubble-2"></div>
+      <div class="pulse-bubble pulse-bubble-3"></div>
     </div>
     </div>
-    <h1>{loadingContent}</h1>
+    <h1><b>{loadingContent}</b></h1>
+    </div>
     </>
+    }
+
+    {
+      success &&
+      <>
+      <div className='font'><b>Sale Successfully Created</b></div>
+      </>
     }
       {comp && <form onSubmit={submitHandler}>
         <div className='formSubmission'>
@@ -212,7 +228,7 @@ const SellData = () => {
             ></input>
           </div>
           <div className='form_comp'>
-            <label>Decription </label>
+            <label>Description </label>
             <textarea
               rows='3'
               cols='20'
@@ -239,7 +255,7 @@ const SellData = () => {
             ></input>
           </div>
         </div>
-        <div className='button'>
+        <div className='but'>
           <button type='submit'>Upload</button>
         </div>
       </form>}

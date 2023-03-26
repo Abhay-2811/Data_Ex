@@ -52,6 +52,8 @@
 .right form textarea {
   width: 100%;
   font-size: 20px;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
 }
 
 .about_middle {

@@ -2,6 +2,20 @@
   display: flex;
   flex-direction: column;
 }
+.form_comp {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.form_comp input:active {
+  border-bottom: 1px solid gray;
+}
+.form_comp input:focus {
+  border-bottom: 1px solid gray;
+}
 .selldata_container {
   display: flex;
   align-items: center;
@@ -9,14 +23,41 @@
   height: 85vh;
 }
 .selldata_container form {
-  border: 1px solid red;
-  padding: 15px;
+  /* border: 1px solid red; */
+  padding: 30px;
+  background-color: #f0f4ff;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px gray;
 }
-.form_comp input,.form_comp textarea {
-  background-color: #e5ecfb;
+.form_comp input,
+.form_comp textarea {
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  
 }
 .button {
   background-color: #2667ff;
+}
+.but {
+  display: flex;
+  justify-content: center;
+  background-color: #3636d6;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 18px;
+  padding: 4px 6px;
+}
+.uploadfile input {
+  border: none;
+
+  outline: none;
+}
+.but:hover {
+  background-color: #3636d6;
+  box-shadow: 3px 3px 5px gray;
 }
 
 /* KEYFRAMES */
@@ -89,18 +130,26 @@
 
 /* PULSE BUBBLES */
 
+.spinner-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .pulse-container {
   width: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
+
 }
 
 .pulse-bubble {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #3ff9dc;
+  background-color: #5658f5;
 }
 
 .pulse-bubble-1 {
@@ -112,5 +161,12 @@
 .pulse-bubble-3 {
     animation: pulse .4s ease .4s infinite alternate;
 }
+
+.loading_Spinner {
+  display: flex;
+  flex-direction:column;
+}
+
+
 
 

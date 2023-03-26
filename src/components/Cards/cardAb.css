@@ -7,6 +7,18 @@
   flex-direction: column;
   /* background-color: #e5ecfb; */
 }
+.card__container h1{
+  font-size: 25px; 
+  margin-top: 15px;
+  /* color:#2667ff; */
+  font-weight: 500;
+}
+.card__container p{
+  color: gray;
+  width: 60%;
+  margin-top: 10px;
+  text-align: center;
+}
 .card__container img {
   height: 200px;
   width: 200px;
