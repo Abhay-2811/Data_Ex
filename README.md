@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# What is Data-Ex ?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DataEx is a decentralized data exchange where anyone from anywhere can monetise "any" kind of data in an encrypted and private manner. 
 
-## Available Scripts
+These data are further listed on our marketplace and is available for anyone to buy.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# How it's made ?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+FVM wraps around every functionality of DataEx starting from storing uploaded files using DataDeals on Filecoin Virtual Machine to retrieving those files from miners.
 
-### `npm run build`
+Initially when a file is uploaded the data flow is :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Converting "anykind" of file to ".car" file.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Getting four essential information for deal proposal on FVM : 
+    - File Size [Before Conversion to CAR, also known as Piece Size]
+    - Car File Size
+    - CID or Piece CID
+    - CAR link
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Using above informations we can call (makeDealProposal) function of DealClient contract.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Why Data-Ex ?
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Unlike traditional blockchain technology, which has limitations when it comes to storing and retrieving large amounts of data, Data-Ex provides a solution that enables users to securely and efficiently store and retrieve data of any size. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This makes it an ideal platform for anyone looking to monetize their data or access valuable data from others.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
